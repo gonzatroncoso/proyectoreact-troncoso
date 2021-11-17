@@ -31,9 +31,7 @@ const  ItemListContainer = ({saludo}) => {
         .catch(err => console.log(err)) 
     }
 
-
     },[marcaID])
-    
     console.log(marcaID)
 
 

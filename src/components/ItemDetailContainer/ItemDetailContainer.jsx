@@ -1,13 +1,11 @@
 //import React from 'react'
 import {useState, useEffect} from 'react'
-//import Item from '../Item/Item'
 import {useParams} from 'react-router'
 import ItemDetail from "../ItemDetail/ItemDetail";
-//import { productos } from '../../services/getFetch';
- import { getFetch } from '../../services/getFetch';
+
+import { getFetch } from '../../services/getFetch';
     
   
-
 const ItemDetailContainer = ()  => {
 
     const [item, setProductos]  =  useState({});

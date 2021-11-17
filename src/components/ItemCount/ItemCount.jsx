@@ -1,38 +1,24 @@
 import React, {useState} from 'react'
 
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({initial, stock, onAdd}) => {
 
     const[count, setCount]  =  useState (initial)
 
-    const suma = ( ) =>  {
-        if ( count < 10){
-            setCount(count + 1)
-           }
-           else{
-               alert("No contamos con stock")
-           }       
-    }
 
-
-    const resta = ()  => {
-       if(count > initial) setCount(count - 1)
-    }
-
-
-    const onAdd = ()  => {
-        alert (` AGREGASTE ${count}  PRODUCTOS` )
+    const handleOp = (suma) => {
+        suma ? setCount (count +1) : setCount (count -1)
     }
 
     return ( 
         <div>
-         <button className= "btn btn-danger" onClick = {resta} > - </button>
+         <button className= "btn btn-danger"   onClick={ () => handleOp(false)}   disabled={count === 0} > - </button>
 
          <label> cantidad {count} </label>
 
-         <button className = "btn btn-success"  onClick = {suma}> + </button>
+         <button className = "btn btn-success"   onClick={ () => handleOp(true)} > + </button>
 
-         <button className = "btn btn-dark"  onClick = {onAdd}> AGREGAR </button>
+         <button className = "btn btn-dark" onClick={ () => onAdd(count)}   disabled={count === 0} > AGREGAR </button>
         </div>
     )
 
