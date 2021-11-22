@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {BrowserRouter, Switch, Route} from  'react-router-dom'
 
 import  NavBar from './components/NavBar/NavBar';
@@ -8,10 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Cart from './components/Cart/Cart'
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import ItemDetail from "./components/ItemDetail/ItemDetail";
+//import ItemDetail from "./components/ItemDetail/ItemDetail";
+import CartContextProvider from './context/CartContext'
+import './App.css';
 
 function App() {
   return (
+    <CartContextProvider>
       <BrowserRouter>
           <div className="App">
             <NavBar />
@@ -40,7 +42,7 @@ function App() {
 
           </div>
       </BrowserRouter>
-
+    </CartContextProvider>
   );
 }
   

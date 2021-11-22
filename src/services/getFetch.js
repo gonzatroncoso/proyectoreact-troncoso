@@ -42,5 +42,4 @@ const productos = [
     
 
  // console.log(getFetch)
-  
-  
+ 

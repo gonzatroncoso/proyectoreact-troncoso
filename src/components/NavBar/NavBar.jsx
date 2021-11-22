@@ -3,8 +3,13 @@ import Nav from 'react-bootstrap/Nav'
 import CartWidget from '../CartWidget/CartWidget';
 import "./NavBar.css";
 import { Link} from  'react-router-dom'
+import { useCartContext } from '../../context/CartContext';
 
   const  NavBar = () => {
+
+    const {cantidadItem}  = useCartContext()
+   
+
     return (
       <Nav className="header ">
         <div class="container">
@@ -32,6 +37,7 @@ import { Link} from  'react-router-dom'
         </Link>
       
       <Link to="/cart">
+        {cantidadItem()}
         <CartWidget  />
       </Link>
 

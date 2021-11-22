@@ -1,18 +1,9 @@
 import React from 'react'
 
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
-import ListGroupItem from 'react-bootstrap/ListGroupItem'
+
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-import { Row } from 'react-bootstrap'
- // import { getFetch } from '../../services/getFetch'
-//  import { Link } from 'react-router-dom'
- // import { useParams } from "react-router-dom";
- 
- import Container from 'react-bootstrap/Container'
- import ListGroup from 'react-bootstrap/ListGroup'
 
 
 import "./Item.css";
@@ -36,27 +27,3 @@ import "./Item.css";
 }
 
 export default Item
-
-{/* <Card style={{ width: '18rem' }} key={prod.id} >
-<Card.Img variant="top" src={prod.imagen} />
-
-
-<Card.Body>
-  <Card.Title>{prod.modelo}</Card.Title>
-  <Card.Text>
-    Some quick example text to build on the card title and make up the bulk of
-    the card's content.
-  </Card.Text>
-</Card.Body>
-
-
-<ListGroup className="list-group-flush">
-  <ListGroupItem>{prod.memoria}</ListGroupItem>
-  <ListGroupItem>${prod.precio}</ListGroupItem>                                
-</ListGroup> 
-
-
-<Link to={`/detail/${prod.id}`}>
-    <Button>Mostrar detalle</Button>
-</Link>
-</Card> */}
