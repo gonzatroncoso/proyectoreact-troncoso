@@ -37,12 +37,18 @@ export const useCartContext = () =>{
         setCartList(cartList.filter((item) => item.id !== id));
       };
    
+    const cantidadItem = ( ) => {
+        return cartList.reduce(  (acum, item ) => acum = acum + item.cantidad, 0)
+    }  
+
+
 
     return (
         <CartContext.Provider  value ={{
             cartList,
-           // agregarCarrito,
+           
             agregarItem,
+            cantidadItem,
             
             sacarProducto
         }
