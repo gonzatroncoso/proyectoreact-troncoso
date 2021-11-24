@@ -33,13 +33,25 @@ export const useCartContext = () =>{
 
     }
 
+    //borrar celular
     const sacarProducto = (id) => {
         setCartList(cartList.filter((item) => item.id !== id));
       };
    
-    const cantidadItem = ( ) => {
+      
+    const cantidadItem = () => {
         return cartList.reduce(  (acum, item ) => acum = acum + item.cantidad, 0)
     }  
+
+    //borrar carrito
+    const borrarCarrito = () => {
+        setCartList([])
+    }
+
+  
+    const total = () => {
+        return cartList.reduce((acum, item) => (acum += item.cantidad * item.precio ), 0)
+    }
 
 
 
@@ -48,9 +60,10 @@ export const useCartContext = () =>{
             cartList,
            
             agregarItem,
-            cantidadItem,
-            
-            sacarProducto
+            cantidadItem,          
+            sacarProducto,
+            borrarCarrito,
+            total
         }
         }>
             {/* children es una prop que puedo usar dentro del componente. En este caso seria en (App) */}
