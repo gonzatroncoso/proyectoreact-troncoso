@@ -4,30 +4,25 @@ import {useParams} from 'react-router'
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 import { getFetch } from '../../services/getFetch';
-    
+import { getFirestore } from '../../services/getFirestore'    
   
 const ItemDetailContainer = ()  => {
 
     const [item, setProductos]  =  useState({});
+
+  //  const [prod, setProd] = useState({})
     const {id} = useParams();
 
     useEffect(() => {
-        if(id){
-            getFetch
-                .then(res => {
-                    setProductos(res.find(a => a.id === parseInt(id)))
-                })
-                .catch(err => console.log(err))
-                
-        }else{
-            getFetch
-                .then(res => {
-                    setProductos(res)
-                })
-                .catch(err => console.log(err))
-                
-        }
+
+    const dbQuery = getFirestore()    
+
+    //trae un producto segun ID
+      dbQuery.collection("items").doc(id).get()
+      .then(respuesta => setProductos({ id:respuesta.id, ...respuesta.data()  }))
+
     },[id]);
+ 
 
     return (
         <>

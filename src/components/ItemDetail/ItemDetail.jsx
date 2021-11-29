@@ -28,7 +28,7 @@ import { useCartContext } from '../../context/CartContext'
       return (
         <>       
             <Card className="imagenDetalle"  key={prod.id}>
-                <img  className="" src={prod.imagen} alt="cel" />
+                <img  src={prod.imagen} alt="cel" />
                 <Card.Body >
                     <Card.Title> {prod.modelo} </Card.Title>
                     <Card.Text>
