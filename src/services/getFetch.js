@@ -20,11 +20,12 @@ const productos = [
     {id: 9, marca:"motorola", modelo:"Motorola X Play", memoria:"256gb", precio:43000 , imagen: "https://i.ibb.co/sRv4zPW/motoxplay.jpg" }
     
     ];
+    
 
     export const getFetch = new Promise ((aceptar, rechazar)  => {
       const condition=true
       if (condition) {
-        //aca simulo un retraso de la red
+        
         setTimeout(() => {
           aceptar(productos)
           
@@ -41,5 +42,4 @@ const productos = [
     })
     
 
- // console.log(getFetch)
  

@@ -1,14 +1,13 @@
 
 import React from 'react'
- import {createContext, useState, useContext} from "react"
+import {createContext, useState, useContext} from "react"
+
 
 const CartContext = createContext ([])
 
 export const useCartContext = () =>{
     return useContext (CartContext)
 }
-
-
 
 
  const CartContextProvider = ({children}) => {
@@ -66,7 +65,7 @@ export const useCartContext = () =>{
             total
         }
         }>
-            {/* children es una prop que puedo usar dentro del componente. En este caso seria en (App) */}
+            
             {children}
         </CartContext.Provider>
     )

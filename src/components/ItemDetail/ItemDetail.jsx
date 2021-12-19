@@ -1,8 +1,6 @@
 import React, { useState }  from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import ItemCount from "../ItemCount/ItemCount"
-
 import { Link} from  'react-router-dom'
 import "./ItemDetail.css";
 import { useCartContext } from '../../context/CartContext'
@@ -16,8 +14,6 @@ import { useCartContext } from '../../context/CartContext'
 
     const handleAdd = (cantidad) => {
 
-     // console.log(cantidad);
-
       setWasClicked(cantidad);
 
       agregarItem({...prod, cantidad: cantidad})
@@ -26,15 +22,20 @@ import { useCartContext } from '../../context/CartContext'
     console.log(cartList)
 
       return (
-        <>       
+        <div className="contenedor" >       
             <Card className="imagenDetalle"  key={prod.id}>
                 <img  src={prod.imagen} alt="cel" />
-                <Card.Body >
+                <Card.Body>
                     <Card.Title> {prod.modelo} </Card.Title>
-                    <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, fugiat et eius deleniti itaque laboriosam officia magni? Deleniti inventore repellat totam provident alias! Vero beatae quae laudantium reprehenderit eum eos?
-                    </Card.Text>
-                <Button variant="primary">BOTON</Button> 
+                    
+                    <p>
+                    {prod.descripcion}
+                    </p>
+
+                    <p>
+                      ${prod.precio}
+                    </p>
+                
                 </Card.Body>
             </Card>
 
@@ -42,13 +43,13 @@ import { useCartContext } from '../../context/CartContext'
 
                   <ItemCount  initial = {1} stock={20}  producto={prod.modelo} onAdd={handleAdd}/>
                     :
-              <>
-                  <Link to='/cart'><button type="button" class="btn btn-danger">Finalizar su compra</button></Link>
+              <botonesAgregar className= "botones">
+                  <Link to='/cart'><button type="button" class="btn btn-danger btnMas">Finalizar su compra</button></Link>
                   <Link to='/'><button type="button" class="btn btn-success ">Continuar comprando</button></Link>
-              </>
+              </botonesAgregar>
             }
             
-        </>
+        </div>
             )
       }
   

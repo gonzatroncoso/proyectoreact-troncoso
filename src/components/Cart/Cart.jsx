@@ -5,11 +5,10 @@ import {useCartContext } from "../../context/CartContext"
 import { Link} from  'react-router-dom'
 import Table from 'react-bootstrap/Table'
 import firebase from 'firebase'
-//import Button from 'react-bootstrap/Button'
-
 import Modal from '../Modal/Modal'
-import { getFetch } from '../../services/getFetch';
+
 import { getFirestore } from '../../services/getFirestore'  
+import "./Cart.css";
 
 
 const Cart = () => {
@@ -53,15 +52,11 @@ const Cart = () => {
       .then((respuesta) => setIdOrden(respuesta.id))
       .catch((err) => console.log(err))
   
-
  console.log(orden)
-
   };
 
   return (
     <>
-      
-
 
 {cartList.length === 0 ? (
   <div>
@@ -115,7 +110,7 @@ const Cart = () => {
 
   <form
       onSubmit={generarOrden}
-        className="container">
+        className="container form">
           <div class="col-md-8">
               <label for="nombre">Nombre</label>
               <input type="text" placeholder="Leo Messi" value={nombre} onChange={(e) => setNombre(e.target.value)} className="form-control" id="nombre" />
@@ -131,24 +126,25 @@ const Cart = () => {
                 <input type="text" placeholder="01148963690" value={tel} onChange={(e) => setTel(e.target.value)} className="form-control" id="tel" />
             </div>
 
-              <button className="btn btn-success" disabled={nombre.length === 0 || email.length === 0 || tel.length === 0}
-              onClick={() => setShowModal(true)} >
+              <button className="btn btn-success terminarCompra"  disabled={nombre.length === 0 || email.length === 0 || tel.length === 0}
+              onClick={generarOrden => setShowModal(true)} >
 
                 Terminar compra         
               </button>
 
     </form>
     
-    
+    {showModal === true && (
         <Modal
-          nombre={nombre}
-          email={email}
-          tel={tel}
+          nombre ={nombre}
+          email ={email}
+          tel ={tel}
           idOrden={idOrden}
-          total={total()}
+          total ={total()}
+          modal  ={showModal}
           
         />
-       
+       )}
   </div>
   
 

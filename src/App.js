@@ -4,10 +4,8 @@ import {BrowserRouter, Switch, Route} from  'react-router-dom'
 import  NavBar from './components/NavBar/NavBar';
 import  ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Cart from './components/Cart/Cart'
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-//import ItemDetail from "./components/ItemDetail/ItemDetail";
 import CartContextProvider from './context/CartContext'
 import './App.css';
 

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
-import ItemCount from '../ItemCount/ItemCount'
+
 import {useParams} from 'react-router-dom'
-import { getFetch } from '../../services/getFetch'
+
 import  ItemList  from '../ItemList/ItemList'
 import { getFirestore } from '../../services/getFirestore'
 
@@ -9,22 +9,34 @@ import { getFirestore } from '../../services/getFirestore'
 //componente
 const  ItemListContainer = ({saludo}) => {
   const [productos, setProductos] = useState([])
-//  const [prod, setProd] = useState({})
 
   const {marcaID} = useParams()
 
-
-
   useEffect(() => {
     const dbQuery = getFirestore()
+    
 
-    dbQuery.collection("items").get() // me trae todos
-      .then(data => setProductos (data.docs.map (x => ({id: x.id, ...x.data() }) ) ))
+    if(marcaID){
+
+      dbQuery.collection("items").where("marca", "==", `${marcaID}` ).get() 
+        .then(data => setProductos (data.docs.map (pro => ({id: pro.id, ...pro.data() }) ) ))
+        .catch(err => console.log(err))
+        
+    
+      }  
+      
+
+    else{
+
+      dbQuery.collection("items").get() 
+      .then(data => setProductos (data.docs.map (pro => ({id: pro.id, ...pro.data() }) ) ))
       .catch(err => console.log(err))
       
+
+    }
+
+  },[marcaID])
   
-    },[marcaID])
-  //  console.log(marcaID)
     
 
     return (
@@ -32,9 +44,6 @@ const  ItemListContainer = ({saludo}) => {
         <h1>{saludo}</h1>
         
         <ItemList productos={productos}/>
-        
-        
-         {/* <ItemCount  initial = {0} stock={10} /> */}
        </>
    );
   }

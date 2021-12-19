@@ -1,19 +1,15 @@
 .header{
     background-color: black;
-
     color:red
-
 }
 
 
 .nav {
     color:red;
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 
-.categorias{
-    
+.categorias{  
     margin-left: 230px;
     font-size: 20px;
 }

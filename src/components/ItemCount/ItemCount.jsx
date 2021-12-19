@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
+import "./ItemCount.css";
 
-
-const ItemCount = ({initial, stock, onAdd}) => {
+const ItemCount = ({initial, onAdd}) => {
 
     const[count, setCount]  =  useState (initial)
 
@@ -11,14 +11,14 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return ( 
-        <div>
-         <button className= "btn btn-danger"   onClick={ () => handleOp(false)}   disabled={count === 0} > - </button>
+        <div className='botones'>
+         <button className= "btn btn-danger btnMenos"   onClick={ () => handleOp(false)}   disabled={count === 0} > - </button>
 
-         <label> cantidad {count} </label>
+         <label> Cantidad: {count} </label>
 
-         <button className = "btn btn-success"   onClick={ () => handleOp(true)} > + </button>
+         <button className = "btn btn-success btnMas"   onClick={ () => handleOp(true)} > + </button>
 
-         <button className = "btn btn-dark" onClick={ () => onAdd(count)}   disabled={count === 0} > AGREGAR </button>
+         <button className = "btn btn-dark btnAgregar" onClick={ () => onAdd(count)}   disabled={count === 0} > AGREGAR </button>
         </div>
     )
 

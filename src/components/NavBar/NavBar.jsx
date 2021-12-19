@@ -12,10 +12,11 @@ import { useCartContext } from '../../context/CartContext';
 
     return (
       <Nav className="header ">
-        <div class="container">
-          <div class=" header">
-            <img  className="imagen" src="https://i.ibb.co/TT0QMvN/logocelulares1.jpg" alt="" />
-            
+        <div className="container">
+          <div className=" header">
+          <Link to="/">
+            <img className="imagen" src="https://i.ibb.co/TT0QMvN/logocelulares1.jpg" alt="logo" />
+          </Link>
           </div>
 
         </div>
