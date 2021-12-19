@@ -13,4 +13,5 @@ Programas que utilice:
 En este proyecto se puede navegar por la web, pudiendo ver los detalles de los celulares, memoria, precio etc .
 Ademas  se puede agregar y comprar productos y verlos en el carrito.
 
-https://goofy-wescoff-67c99a.netlify.app/
+LINK AL PROYECTO :  https://goofy-wescoff-67c99a.netlify.app/
+
